@@ -46,3 +46,9 @@ Answer.create([
   { body: 'язык структурированных запросов',
     correct: false, test_id: questions[4].id }
   ])
+
+connection = ActiveRecord::Base.connection()
+connection.execute('
+INSERT INTO users_tests(user_id, test_id) VALUES
+(1, 1), (1, 3), (1, 4), (1, 5),
+(2, 1), (2, 2), (2, 3), (2, 5);')
