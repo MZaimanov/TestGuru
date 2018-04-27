@@ -6,19 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create([
+users = User.create!([
   { first_name: 'Mike' },
   { first_name: 'Dimon' },
   { first_name: 'Linda' }
   ])
 
-categories = Category.create([
+categories = Category.create!([
   { title: 'Frontend' },
   { title: 'Backend'},
   { title: 'Other' }
   ])
 
-tests = Test.create([
+tests = Test.create!([
   { title: 'HTML',   level: 1, category_id: categories[0].id },
   { title: 'Rails',  level: 1, category_id: categories[0].id },
   { title: 'Ruby',   level: 2, category_id: categories[1].id },
@@ -26,7 +26,7 @@ tests = Test.create([
   { title: 'SQL',    level: 1, category_id: categories[2].id }
   ])
 
-questions = Question.create([
+questions = Question.create!([
   { body: 'Что такое Ruby?',                          test_id: tests[2].id },
   { body: 'Назовите тип языка Go',                    test_id: tests[3].id },
   { body: 'Что обозначает тег head?',                 test_id: tests[0].id },
@@ -34,7 +34,7 @@ questions = Question.create([
   { body: 'Как расшифровывается аббревиатура SQL?',   test_id: tests[4].id }
   ])
 
-Answer.create([
+Answer.create!([
   { body: 'это камень',
     correct: false, test_id: questions[0].id },
   { body: 'компилируемый',
@@ -47,8 +47,6 @@ Answer.create([
     correct: false, test_id: questions[4].id }
   ])
 
-connection = ActiveRecord::Base.connection()
-connection.execute('
-INSERT INTO users_tests(user_id, test_id) VALUES
-(1, 1), (1, 3), (1, 4), (1, 5),
-(2, 1), (2, 2), (2, 3), (2, 5);')
+[[1,1],[1,3], [1,4], [1,5], [2,1], [2,2], [2,3], [2,5]].each do |d|
+  UsersTest.create!(user_id: d.first, test_id: d.second)
+  end
