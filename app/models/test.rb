@@ -1,5 +1,6 @@
 class Test < ApplicationRecord
   has_many :users_tests
+  has_many :questions
   belongs_to :category
   def self.category_tests(category)
       category = Category.find_by(title: category)
