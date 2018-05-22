@@ -5,7 +5,7 @@ class Answer < ApplicationRecord
 
   validates :body, presence: true
 
-  validate :validate_answers_count, on: :update
+  validate :validate_answers_count, on: :create
 
   private
 
