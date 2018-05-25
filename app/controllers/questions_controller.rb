@@ -5,7 +5,6 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_questin_not_found
 
   def index
-    @test
   end
 
   def show
