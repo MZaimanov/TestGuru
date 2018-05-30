@@ -1,11 +1,11 @@
-<% question = @test.questions.find(params[:id])%>
 <p>
   <strong>Question:</strong>
-  <%= question.body %>
+  <%= @question.body %>
 </p>
+<h3><%= question_header(@new_question) %></h3>
 <p>
-  <%= link_to 'Удалить вопрос', [@test, question],
+  <%= link_to 'Удалить вопрос', @question,
               method: :delete,
               data: { confirm: 'Вы уверены?' } %>
 </p>
-<%= link_to 'Назад', test_path(@test) %>
+<%= link_to 'Back', test_path(@question.test) %>

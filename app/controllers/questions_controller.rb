@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
-  before_action :find_test
+  before_action :find_test, only: %i[index create]
   before_action :find_question, only: %i[show edit update destroy]
+  before_action :new_question, only: :show
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_questin_not_found
 
@@ -18,7 +19,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = @test.questions.build(question_params)
+    @question = @test.questions.new(question_params)
     if @question.save
       redirect_to test_questions_path(@test)
     else
@@ -29,7 +30,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_questions_path(@test)
+      redirect_to test_path(@question.test)
     else
       render "edit"
     end
@@ -39,6 +40,7 @@ class QuestionsController < ApplicationController
     @question.destroy
     redirect_to test_questions_path(@test)
   end
+
 
   private
 
@@ -51,10 +53,14 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def rescue_with_questin_not_found
     render plain: "Вопрос не найден"
+  end
+
+  def new_question
+    @new_question = @question.test.questions.new
   end
 end
