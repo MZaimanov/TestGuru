@@ -9,9 +9,22 @@
   <%= @test.level %>
 </p>
 
-<p>
-  <%= link_to("Вопросы", test_questions_path(@test)) %>
-</p>
+<h3>Questions</h3>
+<table>
+  <%= render @test.questions %>
+</table>
+
+<%= form_with(model: [@test, @test.questions.build], local: true) do |form| %>
+<h3><%= question_header(@test.questions.new) %></h3>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
 
 <%= link_to 'Редактирование', edit_test_path(@test) %>
 <%= link_to 'Назад', tests_path %>

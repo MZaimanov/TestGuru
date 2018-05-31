@@ -1,0 +1,18 @@
+<% result = test_result(@test_passage) %>
+<% class_name = result_class(@test_passage) %>
+
+<h2>The <%= @test_passage.test.title %> Test was Completed!</h2>
+
+<p>
+  Total questions: <%= @test_passage.test.questions.count %><br>
+  Correct: <%= @test_passage.correct_questions %><br>
+</p>
+
+<p>
+  Score: <%= content_tag(:span, @test_passage.score, class: class_name) %>%<br>
+  Result: <%= result %>
+</p>
+
+<p>
+  <%= link_to 'Назад ко всем тестам', tests_path %>
+</p>

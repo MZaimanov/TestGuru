@@ -1,11 +1,16 @@
+<h2><%= @question.test.title %> Question</h2>
+
 <p>
-  <strong>Question:</strong>
   <%= @question.body %>
 </p>
-<h3><%= question_header(@new_question) %></h3>
-<p>
-  <%= link_to 'Удалить вопрос', @question,
-              method: :delete,
-              data: { confirm: 'Вы уверены?' } %>
-</p>
-<%= link_to 'Back', test_path(@question.test) %>
+
+<h3>Answers</h3>
+
+<%= link_to 'Новй ответ', new_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
+
+<%= link_to 'Редактировать', edit_question_path(@question) %>
+<%= link_to 'Назад', test_path(@question.test) %>
