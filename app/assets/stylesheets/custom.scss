@@ -1,0 +1,37 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+body {
+  padding: 10px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+td, th {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+.success-result {
+  color: green;
+}
+
+.fail-result {
+  color: red;
+}
