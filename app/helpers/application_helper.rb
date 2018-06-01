@@ -7,10 +7,10 @@ module ApplicationHelper
     content_tag(:a, 'Код на GitHub', href: 'https://github.com/MZaimanov/TestGuru', target: 'blank')
   end
 
-  def flash_message(message_key)
-    if flash[message_key]
-      content_tag :p, flash[message_key], class: 'flash alert'
-    end
+  def flash_messages
+    html = ''
+    flash.each { |key, value| html << content_tag(:p, value, class: "flash #{key}") }
+    html.html_safe
   end
 
   def welcome_message(user)
