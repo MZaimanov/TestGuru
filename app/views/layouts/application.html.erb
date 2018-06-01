@@ -9,7 +9,25 @@
   </head>
 
   <body>
+    <header class="navbar navbar-inverse">
+      <div class="container">
+        <strong><%= link_to "Test Guru", root_path, id: "logo", class: "navbar-brand"%></strong>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home",   root_path %></li>
+            <li><%= link_to "Help",   '#' %></li>
+            <% if logged_in? %>
+              <li><%= welcome_message(current_user) %></li>
+              <li><%= link_to "Logout", logout_path %></li>
+            <% else %>
+              <li><%= link_to "Log in", login_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <%= yield %>
-    <%= render 'shared/footer' %>
+    <%= render "shared/footer" %>
   </body>
 </html>
+
