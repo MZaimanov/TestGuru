@@ -10,6 +10,6 @@ class Answer < ApplicationRecord
   private
 
   def validate_answers_count
-    errors.add(:answers, 'Должно быть от 1 до 4 ответов!') unless (1..4).include?(answers.size)
+    errors.add(:question) if question.answers.size > 4
   end
 end
