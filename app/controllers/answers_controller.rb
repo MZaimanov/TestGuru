@@ -1,26 +1,8 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: %i[show edit update destroy]
-  before_action :set_question, only: %i[new create]
+  before_action :set_answer, only: %i[show update ]
 
 
   def show
-  end
-
-  def new
-    @answer = @question.answers.new
-  end
-
-  def edit
-  end
-
-  def create
-    @answer = @question.answers.new(answer_params)
-
-      if @answer.save
-        redirect_to @answer, notice: 'Answer was successfully created.'
-      else
-        render :new
-      end
   end
 
   def update
@@ -31,17 +13,7 @@ class AnswersController < ApplicationController
       end
   end
 
-  def destroy
-    @answer.destroy
-      redirect_to answers_url, notice: 'Answer was successfully destroyed.'
-      head :no_content
-  end
-
   private
-
-  def set_question
-    @question = Question.find(params[:question_id])
-  end
 
   def set_answer
     @answer = Answer.find(params[:id])

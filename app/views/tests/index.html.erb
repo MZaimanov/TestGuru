@@ -1,15 +1,13 @@
-<h1>Доступные тесты</h1>
+<h1>Tests</h1>
 
-<%= link_to 'Новый тест', new_test_path %>
 <table>
   <tr>
     <th>Title</th>
     <th>Level</th>
-    <th>Questions</th>
-    <th>Action</th>
-    <th colspan="4"></th>
+    <th>Category</th>
+    <th>Number of questions</th>
+    <th>Actions</th>
   </tr>
 
   <%= render @tests %>
-
 </table>

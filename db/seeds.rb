@@ -1,7 +1,7 @@
 users = User.create!([
-  { first_name: 'Mike' },
-  { first_name: 'Dimon' },
-  { first_name: 'Linda' }
+  { first_name: 'Mike', email: "mike@mail.ru", password: 'password' },
+  { first_name: 'Dimon', email: "dimon@mail.ru", password: 'password' },
+  { first_name: 'Linda', email: "linda@mail.ru", password: 'password' }
   ])
 
 categories = Category.create!([
@@ -39,8 +39,4 @@ Answer.create!([
     correct: false, question_id: questions[4].id }
   ])
 
-
-[[1,1],[1,3], [1,4], [1,5], [2,1], [2,2], [2,3], [2,5]].each do |d|
-  UsersTest.create!(user_id: d.first, test_id: d.second)
-  end
 
