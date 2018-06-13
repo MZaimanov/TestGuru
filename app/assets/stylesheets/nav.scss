@@ -1,4 +1,37 @@
-nav {
-  text-align: right;
+.logo {
+  padding-top: 20px;
+  text-align: left;
+}
+.logo a {
+  text-decoration: none;
   font-size: 20px;
+  color: #000;
+}
+.user_info {
+  text-align: right;
+}
+
+nav {
+  height: 60px;
+  background-color: #a0afaf;
+  padding: 10px;
+}
+.nav.logo a:visited {
+  color: #000;
+}
+
+.nav-admin {
+  background-color: #4293e6;
+}
+
+.nav-admin a:visited {
+  color: #fff;
+}
+
+.nav-admin a{
+  color: #fff;
+}
+.admin_user_info {
+  text-align: right;
+  color: #fff;
 }
