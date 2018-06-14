@@ -2,9 +2,9 @@
 
 <p>
   <b><%= t('.result') %></b>
-  <b class="<%= result_view(@test_passage) %>">
-    <%= @test_passage.result_points %> % <br>
-    <%= text(@test_passage) %>
+  <b class="<%= test_result(@test_passage) %>">
+    <%= @test_passage.score %> % <br>
+    <%= result_string(@test_passage) %>
   </b>
 </p>
 <p>
