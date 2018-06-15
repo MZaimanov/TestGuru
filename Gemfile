@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 #gem 'bcrypt', '~> 3.1.7'
 
 #UI
-
+gem 'octicons_helper'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.1'
 
