@@ -1,19 +1,15 @@
 class TestPassagesController < ApplicationController
-
   before_action :authenticate_user!
-  before_action :set_test_passage, only: %i[show update result gist]
+  before_action :set_test_passage, only: %i[show result update gist]
 
   def show
-
   end
 
   def result
-
   end
 
   def update
     @test_passage.accept!(params[:answer_ids])
-
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
@@ -26,13 +22,12 @@ class TestPassagesController < ApplicationController
     result = GistQuestionService.new(@test_passage.current_question).call
     if result
       gist = current_user.gists.create(question_id: @test_passage.current_question_id, link: result.id)
-      gist.save
-      flash_type = { notice: t('gist.success', link: result.html_url) }
+      flash[:notice] = t('gist.success', link: result.html_url)
     else
-      flash_type = { alert: t('gist.failure') }
+      flash[:alert] = t('gist.failure')
     end
 
-    redirect_to @test_passage, flash_type
+    redirect_to @test_passage
   end
 
   private
