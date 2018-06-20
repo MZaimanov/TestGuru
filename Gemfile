@@ -46,6 +46,7 @@ gem 'devise', '~> 4.0'
 # LOCALISATION
 
 gem 'rails-i18n', '~> 5.0.0'
+gem 'i18n-js'
 
 #NETWORKING
 
