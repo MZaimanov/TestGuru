@@ -1,3 +1,4 @@
+
 users = User.create!([
   { first_name: 'Mike', email: "mike@mail.ru", password: 'password' },
   { first_name: 'Dimon', email: "dimon@mail.ru", password: 'password' },
