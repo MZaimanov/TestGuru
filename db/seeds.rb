@@ -6,11 +6,11 @@ categories = Category.create!([
   ])
 
 tests = Test.create!([
-  { title: 'HTML',   level: 1, category_id: categories[0].id, author_id: users[0].id },
-  { title: 'Rails',  level: 1, category_id: categories[0].id, author_id: users[0].id },
-  { title: 'Ruby',   level: 2, category_id: categories[1].id, author_id: users[0].id },
-  { title: 'Go',     level: 3, category_id: categories[1].id, author_id: users[0].id },
-  { title: 'SQL',    level: 1, category_id: categories[2].id, author_id: users[0].id }
+  { title: 'HTML',   level: 1, category_id: categories[0].id, author_id: User.first.id },
+  { title: 'Rails',  level: 1, category_id: categories[0].id, author_id: User.first.id },
+  { title: 'Ruby',   level: 2, category_id: categories[1].id, author_id: User.first.id },
+  { title: 'Go',     level: 3, category_id: categories[1].id, author_id: User.first.id },
+  { title: 'SQL',    level: 1, category_id: categories[2].id, author_id: User.first.id }
   ])
 
 questions = Question.create!([
