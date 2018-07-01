@@ -4,7 +4,6 @@ categories = Category.create!([
   { title: 'Backend'},
   { title: 'Frameworks' }])
 
-
 tests = Test.create!([
   { title: 'HTML', level: 0, category_id: categories[0].id, author_id: User.first.id },
   { title: 'CSS', level: 0, category_id: categories[0].id, author_id: User.first.id },
