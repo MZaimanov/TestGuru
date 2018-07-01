@@ -4,6 +4,7 @@ categories = Category.create!([
   { title: 'Backend'},
   { title: 'Frameworks' }])
 
+
 tests = Test.create!([
   { title: 'HTML', level: 0, category_id: categories[0].id, author_id: User.first.id },
   { title: 'CSS', level: 0, category_id: categories[0].id, author_id: User.first.id },
@@ -33,3 +34,4 @@ Answer.create!([
   { body: 'Ruby`s framework', correct: true, question_id: questions[4].id },
   { body: 'English', question_id: questions[5].id },
   { body: 'JavaScript', correct: true, question_id: questions[5].id }])
+
