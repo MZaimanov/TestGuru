@@ -13,6 +13,6 @@ class FeedbacksMailer < ApplicationMailer
   private
 
   def find_admin
-    @admin = User.find_by(email: 'gauzeee@gmail.com')
+    @admin = User.find_by(email: 'zmikeapp@gmail.com')
   end
 end
