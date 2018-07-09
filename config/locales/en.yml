@@ -53,6 +53,7 @@ en:
         title: "Title"
         level: "Level"
         category_id: "Category"
+        timer: "Set timer"
       answer:
         body: "Body:"
         correct: "Correct?"
@@ -112,6 +113,7 @@ en:
     minpass: "%{length} characters minimum"
     of: "of"
     from: "New Feedback From: "
+    timer: "Time left"
   placeholder:
     email: "Enter Email"
   gist:
