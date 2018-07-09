@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :own_tests, class_name: 'Test', foreign_key: :author_id
   has_many :gists
   has_many :feedbacks
+  has_many :user_badges
+  has_many :badges, through: :user_badges
 
   validates :first_name, presence: true
   VALID_EMAIL_REGEX = /.+@.+\..+/i
