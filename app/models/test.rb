@@ -24,4 +24,8 @@ class Test < ApplicationRecord
     category = Category.find_by(title: category)
     where(category_id: category.id).order(title: :desc).pluck(:title)
   end
+
+  def timer_exists?
+    timer && timer > 0
+  end
 end
