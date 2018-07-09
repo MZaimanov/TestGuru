@@ -9,12 +9,16 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :own_tests, class_name: 'Test', foreign_key: :author_id
   has_many :gists
+  has_many :feedbacks
 
   validates :first_name, presence: true
   VALID_EMAIL_REGEX = /.+@.+\..+/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
+scope :tests_by_level, -> (level) { joins(:test_passages).
+    where(user_id: :user_id, level: level) }
 
   def admin?
     is_a?(Admin)
