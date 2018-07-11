@@ -1,0 +1,15 @@
+<h1><%= @question.test.title %></h1>
+<p>
+  <%= @question.body %>
+</p>
+
+<h2><%= t('label.answer') %></h2>
+
+<%= link_to t('links.new_answer'), new_admin_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
+
+<%= link_to t('links.edit'), edit_admin_question_path(@question) %> |
+<%= link_to t('links.back'), admin_test_path(@question.test) %>

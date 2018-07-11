@@ -1,0 +1,42 @@
+<div class="row justify-content-center mt-3">
+  <div class="col-12 col-md-4 reg-form">
+    <h2><%= t('.header') %></h2>
+
+    <div class="card border-primary">
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <p>
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, class: 'form-control', autocomplete: "email", placeholder: t('placeholder.email') %>
+            </p>
+
+            <p>
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+            </p>
+
+            <p>
+              <% if devise_mapping.rememberable? -%>
+              <div class="form-check">
+                <%= f.label :remember_me, class: 'form-check-label' do %>
+                  <%= f.check_box :remember_me, class: 'form-check-input' %>
+                  <%= t('label.remember_me') %>
+                <% end %>
+              </div>
+            <% end -%>
+            </p>
+
+            <p class="reg-form-btn">
+              <%= f.submit t('links.sign_in'), class: 'btn btn-primary' %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <div class="mt-1 links">
+    <%= render "devise/shared/links" %>
+  </div>
+
+  </div>
+</div>

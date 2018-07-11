@@ -1,0 +1,17 @@
+<h1><%= t('.header') %></h1>
+
+<p>
+  <%= @answer.question.body %>
+</p>
+
+<p>
+  <b><%= t('label.answer') %></b>
+  <%= @answer.body %>
+</p>
+
+<p>
+  <b><%= t('label.correct') %></b>
+  <%= @answer.correct %>
+</p>
+
+<%= link_to t('links.back'), admin_question_path(@answer.question) %>

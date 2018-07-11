@@ -1,0 +1,12 @@
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
+
+<p>
+  <b><%= t('.result') %></b>
+  <b class="<%= test_result(@test_passage) %>">
+    <%= @test_passage.score %> % <br>
+    <%= result_string(@test_passage) %>
+  </b>
+</p>
+<p>
+  <%= link_to t('links.tests'), tests_path %>
+</p>
