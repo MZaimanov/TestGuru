@@ -74,4 +74,8 @@ class TestPassage < ApplicationRecord
   def next_question
     test.questions.order(:id).where('id > ?', current_question_id).first
   end
+
+  def expires_at
+    created_at + test.timer.minutes if test.timer_exists?
+  end
 end
