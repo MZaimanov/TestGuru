@@ -11,7 +11,7 @@ class TestPassagesController < ApplicationController
   def update
     if check_timer
       @test_passage.stop!
-      else
+    else
       @test_passage.accept!(params[:answer_ids])
     end
 
