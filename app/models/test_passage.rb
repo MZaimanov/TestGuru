@@ -11,9 +11,13 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  # def accept!(answer_ids)
+  #   self.correct_questions += 1 if correct_answer?(answer_ids)
+  #   self.result = self.result_points
+  #   save!
+  # end
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
-    self.result = self.result_points
     save!
   end
 
@@ -29,6 +33,10 @@ class TestPassage < ApplicationRecord
     score >= 85
   end
 
+  def test_done?
+    completed? && success?
+  end
+
   def time_left
     (expires_at - Time.current).to_i
   end
@@ -41,13 +49,6 @@ class TestPassage < ApplicationRecord
     expires_at < Time.current
   end
 
-  def time_remaning
-    if check_timer
-      stop!
-    else
-      accept!(params[:answer_ids])
-    end
-  end
 
   private
 
@@ -68,7 +69,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answers
-    current_question.answers.correct
+    self.current_question.answers.correct
   end
 
   def next_question
